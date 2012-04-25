@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//google_webmaster/api/base.py=utf-8
+encoding//google_webmaster/management/commands/subcommands/base.py=utf-8
+encoding//google_webmaster/management/commands/subcommands/check.py=utf-8
+encoding//google_webmaster/management/commands/webmaster.py=utf-8
