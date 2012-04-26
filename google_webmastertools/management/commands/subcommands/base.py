@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
-from django.core.management.base import BaseCommand, CommandError
 import sys
+import codecs
+import locale
+
+from django.core.management.base import BaseCommand, CommandError
 
 
 class SubcommandsCommand(BaseCommand):
@@ -11,6 +14,7 @@ class SubcommandsCommand(BaseCommand):
         super(SubcommandsCommand, self).__init__()
         for name, subcommand in self.subcommands.items():
             subcommand.command_name = '%s %s' % (self.command_name, name)
+        reload(sys).setdefaultencoding('utf8')
 
     def handle(self, *args, **options):
         stderr = getattr(self, 'stderr', sys.stderr)

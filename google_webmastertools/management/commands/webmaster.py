@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
 from .subcommands.base import SubcommandsCommand
-from .subcommands.check import CheckCommand
+from .subcommands.basic import *
+from .subcommands.sitemaps import *
+from .subcommands.keywords import *
 from django.core.management.base import BaseCommand
 from optparse import make_option
 
@@ -14,6 +16,14 @@ class Command(SubcommandsCommand):
 
     subcommands = {
         'check': CheckCommand,
+        'add': AddCommand,
+        'delete': DeleteCommand,
+        'verify': VerifyCommand,
+        'sitemap_add': AddSitemapCommand,
+        'sitemap_delete': DeleteteSitemapCommand,
+        'sitemap_stats': StatsSitemapCommand,
+        'sitemap_list': ListSitemapCommand,
+        'keywords_list': ListKeywordsCommand,
     }
 
     @property
