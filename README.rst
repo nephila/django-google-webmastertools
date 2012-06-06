@@ -11,8 +11,10 @@ django-google-webmastertools plans to do its best to implement it.
 
 Installation
 ************
-Installation is pretty straightforward: just use pip or whatever method to have
-``google_webmastertools`` in your virtualenv.
+django-google-webmastertools it's not on pypi at the moment,but you can install
+it from github with ``pip``::
+
+    $ pip install -e https://github.com/nephila/django-google-webmastertools.git#egg=django-google-webmastertools
 
 
 Configuration
