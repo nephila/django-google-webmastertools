@@ -14,6 +14,8 @@ from .url import KEYWORDS_FEED
 
 
 def keywords_list(domain=None):
+    """ Lists keywords as reported by the API.
+    """
     domain, siteid = _get_domain(domain)
     client = get_client()
     status = StatusObject(domain)

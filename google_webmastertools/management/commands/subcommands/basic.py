@@ -10,7 +10,8 @@ from google_webmastertools import api
 
 
 class CheckCommand(SubcommandsCommand):
-    #args = 'metatag|htmlpage'
+    """ Wrapper for ``google_webmastertools.api.base.check_domain``
+    """
     help = 'Check if site is registered and verified'
 
     def handle(self, *args, **options):
@@ -26,7 +27,8 @@ class CheckCommand(SubcommandsCommand):
 
 
 class AddCommand(SubcommandsCommand):
-    #args = 'metatag|htmlpage'
+    """ Wrapper for ``google_webmastertools.api.base.add_domain``
+    """
     help = 'Register a domain'
 
     def handle(self, *args, **options):
@@ -39,7 +41,8 @@ class AddCommand(SubcommandsCommand):
 
 
 class VerifyCommand(SubcommandsCommand):
-    #args = 'metatag|htmlpage'
+    """ Wrapper for ``google_webmastertools.api.base.verifiy_domain``
+    """
     help = 'Verify a using htmlpage'
 
     def handle(self, *args, **options):
@@ -52,7 +55,8 @@ class VerifyCommand(SubcommandsCommand):
 
 
 class DeleteCommand(SubcommandsCommand):
-    #args = 'metatag|htmlpage'
+    """ Wrapper for ``google_webmastertools.api.base.delete_domain``
+    """
     help = 'Unregister a domain'
 
     def handle(self, *args, **options):

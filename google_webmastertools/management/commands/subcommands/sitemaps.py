@@ -8,6 +8,8 @@ from gdata.webmastertools.data import SitemapEntry
 
 
 class AddSitemapCommand(SubcommandsCommand):
+    """ Wrapper for ``google_webmastertools.api.sitemaps.sitemap_add``
+    """
     args = 'sitemap-uri [sitemap-type]'
     help = 'Register a sitemap. Sitemap URI is either a relative URL or a valid urlconf name'
 
@@ -28,6 +30,8 @@ class AddSitemapCommand(SubcommandsCommand):
 
 
 class DeleteteSitemapCommand(SubcommandsCommand):
+    """ Wrapper for ``google_webmastertools.api.sitemaps.sitemap_delete``
+    """
     args = 'sitemap-uri'
     help = 'Remove a sitemap. Sitemap URI is either a relative URL or a valid urlconf name'
 
@@ -46,6 +50,8 @@ class DeleteteSitemapCommand(SubcommandsCommand):
 
 
 class ListSitemapCommand(SubcommandsCommand):
+    """ Wrapper for ``google_webmastertools.api.sitemaps.sitemap_list``
+    """
     help = 'Get sitemaps list'
 
     def handle(self, *args, **options):
@@ -58,6 +64,8 @@ class ListSitemapCommand(SubcommandsCommand):
 
 
 class StatsSitemapCommand(SubcommandsCommand):
+    """ Wrapper for ``google_webmastertools.api.sitemaps.sitemap_stats``
+    """
     args = 'sitemap-uri'
     help = 'Get sitemap stats. Sitemap URI is either a relative URL or a valid urlconf name'
 

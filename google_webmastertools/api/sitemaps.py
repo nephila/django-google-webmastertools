@@ -14,12 +14,16 @@ from .url import SITEMAP_FEED
 
 
 def _sitemap_pretty_print(map):
+    """ Formatting function to display sitemap data returned by the API
+    """
     return "%s\n - # URL: %s\n - Last download: %s\n - Updated: %s\n" \
         % (map.title.text, map.sitemap_url_count.text,
           map.sitemap_last_downloaded.text, map.updated.text)
 
 
 def _get_sitemap(sitemap, domain):
+    """ Try to reverse the sitemap URL, if not it will treat it as a normal URL
+    """
     try:
         sitemap = reverse(sitemap)
     except NoReverseMatch:
@@ -30,6 +34,8 @@ def _get_sitemap(sitemap, domain):
 
 
 def sitemap_stats(sitemap, domain=None):
+    """ Extracts sitemap statistic from API
+    """
     domain, siteid = _get_domain(domain)
     client = get_client()
     status = StatusObject(domain)
@@ -51,6 +57,8 @@ def sitemap_stats(sitemap, domain=None):
 
 
 def sitemap_list(domain=None):
+    """ List sitemaps registered for the domain
+    """
     domain, siteid = _get_domain(domain)
     client = get_client()
     status = StatusObject(domain)
@@ -74,6 +82,8 @@ def sitemap_list(domain=None):
 
 
 def sitemap_add(sitemap, sitemap_type, domain=None):
+    """ Add a sitemap to a domain. sitemap_type must be one of the API supported type
+    """
     domain, siteid = _get_domain(domain)
     client = get_client()
     status = StatusObject(domain)
@@ -88,6 +98,8 @@ def sitemap_add(sitemap, sitemap_type, domain=None):
 
 
 def sitemap_delete(sitemap, domain=None):
+    """ Delete a sitemap.
+    """
     domain, siteid = _get_domain(domain)
     client = get_client()
     status = StatusObject(domain)

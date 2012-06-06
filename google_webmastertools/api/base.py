@@ -12,6 +12,8 @@ from .url import CHECK_URL
 
 
 class StatusObject(object):
+    """ StatusObject encapsulate a tiny logic to adapt messages returned by API
+    """
     error = True
     error_message = ""
     verified = False
@@ -36,6 +38,8 @@ class StatusObject(object):
 
 
 def get_client():
+    """ Opens a connection to Google API and returns the client instance
+    """
     client = GWebmasterToolsService(settings.GOOGLE_WEBMASTERTOOLS_LOGIN,
                                     settings.GOOGLE_WEBMASTERTOOLS_PASSWORD)
     client.email = settings.GOOGLE_WEBMASTERTOOLS_LOGIN
@@ -45,6 +49,8 @@ def get_client():
 
 
 def _get_domain(domain=None):
+    """ Create domain string from Django Site object needed by Google API
+    """
     if not domain:
         domain = Site.objects.get_current().domain
     if domain.find("http") == -1:
@@ -54,6 +60,10 @@ def _get_domain(domain=None):
 
 
 def add_domain(domain=None):
+    """ Add a domain to Webmaster Tools
+
+    Opens its own connection to API
+    """
     domain, siteid = _get_domain(domain)
     client = get_client()
     status = StatusObject(domain)
@@ -67,6 +77,10 @@ def add_domain(domain=None):
 
 
 def verify_domain(domain=None):
+    """ Verify a domain to Webmaster Tools
+
+    Triggers Webmaster Tools into starting a domain verification using HTML page
+    """
     domain, siteid = _get_domain(domain)
     client = get_client()
     status = StatusObject(domain)
@@ -80,6 +94,11 @@ def verify_domain(domain=None):
 
 
 def delete_domain(domain=None):
+    """ Delete a domain to Webmaster Tools
+
+    Deletes a domain from Webmaster tools account. Does not require *any*
+    confirmation
+    """
     domain, siteid = _get_domain(domain)
     client = get_client()
     status = StatusObject(domain)
@@ -94,6 +113,8 @@ def delete_domain(domain=None):
 
 
 def check_domain(domain=None):
+    """ Check if domain is already registered in Webmaster Tools
+    """
     domain, siteid = _get_domain(domain)
     client = get_client()
     status = StatusObject(domain)

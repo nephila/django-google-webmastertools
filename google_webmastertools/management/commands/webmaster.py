@@ -9,7 +9,10 @@ from optparse import make_option
 
 
 class Command(SubcommandsCommand):
+    """ Command dispatcher
 
+    Subcommands are registered in the class body
+    """
     args = '<subcommand>'
 
     command_name = 'webmaster'

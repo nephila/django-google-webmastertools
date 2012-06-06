@@ -8,6 +8,8 @@ from gdata.webmastertools.data import SitemapEntry
 
 
 class ListKeywordsCommand(SubcommandsCommand):
+    """ Wrapper for ``google_webmastertools.api.keyword.keywords_list``
+    """
     help = 'Get keywords list'
 
     def handle(self, *args, **options):

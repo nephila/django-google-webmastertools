@@ -7,6 +7,10 @@ from django.core.management.base import BaseCommand, CommandError
 
 
 class SubcommandsCommand(BaseCommand):
+    """ Base command class
+
+    Handles the instantiation of commands
+    """
     subcommands = {}
     command_name = ''
 
