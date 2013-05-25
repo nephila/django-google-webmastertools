@@ -1,4 +1,4 @@
-Django-google-webmastertools
+django-google-webmastertools
 ============================
 
 django-google-webmastertools is a set of Django commands to work with Google's
